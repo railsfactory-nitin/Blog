@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Your Blog</title>
+<%= stylesheet_link_tag "scaffold" %>
+<%= stylesheet_link_tag "depot" , :media => "all" %>
+<%= javascript_include_tag :defaults %>
+<%= csrf_meta_tag %>
+<%= javascript_include_tag 'jquery.min', 'jquery-ui.min', 'rails' %>
+
+
+<div id="banner">
+
+<%= @page_title || "www.Blogging.com" %>
+</div>
+<div id="columns">
+<div id="side">
+
+
+</div>
+
+<div id="main">
+</head>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<body background="/images/two.png" length="100">
+<div class="fb-login-button"> 
+ <html>
+
+    <body>
+      <div id="fb-root"></div>
+      <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+      <div class="fb-like"></div>
+    </body>
+ </html>
+</div>
+<br/>
+<div >
+<a href="http://localhost:3000">Home</a>&nbsp;&nbsp;
+<a href="http://www.ask.com">Questions</a>&nbsp;&nbsp;
+<a href="http://timesofindia.indiatimes.com/tech/techhome/5880659.cms">News</a><br />
+</div>	
+<%= yield %>
+</div>
+</div>
+
+</body>
+</html>

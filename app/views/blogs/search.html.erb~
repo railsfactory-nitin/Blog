@@ -1,0 +1,14 @@
+<%if (@blogs.length==0)%>
+<center><h3>This is not a valid id....<p>Please Enter Correct student_id</p></h3></p>
+<%=image_tag ("21.png")%></center>
+<%= link_to 'Go Back to Search',:controller=>'check',:action=>'show'%>
+
+<%else%>
+<% blogs.each do |w| %>
+<p align="left"/p>
+     
+
+     <%end%>
+<%end%>
+
+

@@ -1,0 +1,59 @@
+
+<center><% if notice %>
+< id="notice"><%= notice %>
+<% end %>
+<div id="Blog_List">
+<%=image_tag("blog.png",:size=>'200x100')%>
+<table >
+<% @blogs.reverse.each do |blog| %>
+<tr border background="/images/first.png",class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td><h2><font color="black"><%= blog.title %></h2><br/>
+<div class="entry">
+
+<%=link_to image_tag(blog.image ,:class => 'list_image',:size=>'100x100'), blog%><br/>
+<div class="price_line">
+<span class="price">
+<font color="black">
+<h3><%= blog.auther%></h3><td/></span>
+</div>
+</div>
+
+
+</td>
+<td class="list_description">
+<dl>
+<dt><H2><font color="black"><%= truncate(strip_tags(blog.description),
+:length => 120) %></h2></dt>
+</dl>
+</td>
+
+<td bgcolor="Bisque class="list_actions">
+<font color="black">
+<%= link_to 'Edit', edit_blog_path(blog) %><br/>
+<%= link_to 'Destroy', blog,
+:confirm => 'Are you sure?',
+:method => :delete %>
+</td>
+</tr>
+<tr><td></tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<font size="4"><%= link_to 'New blog', new_blog_path %></font>
+
+<font color="red"><h3><%= will_paginate (@blog)%></font></center>
+<% if user_signed_in? %>
+<% str = current_user.email %>
+  <%str1 =str.split('@') %>
+ <font color="red" size="4"><%= str1[0] %>  </font>&nbsp;<font color="blue" size="4">Welcome to Blogging.com</font><br/>
+     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <font color="black"><h3><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+      </div>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+

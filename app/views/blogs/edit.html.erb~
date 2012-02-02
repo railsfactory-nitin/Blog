@@ -1,0 +1,20 @@
+<center><%=image_tag("blog.png",:size=>'200x100')%>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @blog %> &nbsp;&nbsp;
+<%= link_to 'Back', blogs_path %>
+   </center> 
+     <% if user_signed_in? %>
+<% str = current_user.email %>
+  <%str1 =str.split('@') %>
+ <font color="red" size="4"><%= str1[0] %>  </font>&nbsp;<font color="blue" size="4">Welcome to Blogging.com</font><br/>
+     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <font color="black"><h3><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+      </div>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+

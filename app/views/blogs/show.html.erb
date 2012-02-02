@@ -1,0 +1,49 @@
+<marquee>You r seeing about <b><i> <%=@blog.title%><i></b></marquee>
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Title:</b>
+  <%= @blog.title %>
+</p>
+<p>
+  <b>Image:</b>
+  <%= @blog.image %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @blog.description %>
+</p>
+<p>
+  <b>Created at:</b>
+  <%= @blog.created_at %>
+</p>
+<h3>Comments</h3>
+  <% @blog.comments.each do |commen| %><br/>
+................................................................
+<h3><p>** <%= commen.name %> **</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= commen.body %> </h3>
+
+................................................................  
+Posted <%= time_ago_in_words(commen.created_at) %> ago
+<% end %>
+<br/> <BR/><BR/>
+<%= form_for :comment ,:url=>{:controller=>'comments',:action=>'create', :blog_id => @blog.id} do |k|%>
+
+Name:<%= k.text_field :name%><br/><br/>
+Body:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= k.text_area :body  ,:rows=>'6'%><br/><br/>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= k.submit%>
+<%end%>   
+<b><%= link_to 'Back', blogs_path %></b><br/>
+<% if user_signed_in? %>
+    <% str = current_user.email %>
+  <%str1 =str.split('@') %>
+ <font color="red" size="4"><%= str1[0] %>  </font>&nbsp;<font color="blue" size="4">Welcome to Blogging.com</font><br/>
+     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <font color="black"><h3><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+      </div>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      
+<>
+<% end %>

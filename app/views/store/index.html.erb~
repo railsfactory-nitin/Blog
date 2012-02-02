@@ -1,0 +1,8 @@
+</center><br/><br/>
+ <FONT SIZE="4" FACE="courier" COLOR=blue><MARQUEE WIDTH=100% BEHAVIOR=SCROLL DIRECTION=RIGHT BGColor=LightCyan><%=image_tag("i.png",:size=>'200x200')%><%=image_tag("ii.png",:size=>'200x200')%><%=image_tag("iii.png",:size=>'200x200')%><%=image_tag("iv.png",:size=>'200x200')%><%=image_tag("v.png",:size=>'200x200')%><%=image_tag("vi.png",:size=>'200x200')%><%=image_tag("vii.png",:size=>'200x200')%></MARQUEE></FONT> <br/><br/>
+<center><table bgcolor='CornflowerBlue '><td><h3><FONT SIZE="3" FACE="courier">A Blog (a blend of the term web log) is a personal journal published on the World Wide Web consisting of discrete<br/> entries ("posts") typically displayed in reverse chronological order so the most recent post appears first.<br/> Blogs are usually the work of a single individual, occasionally of a small group, and often are themed on a single subject.<br/> Blog can also be used as a verb, meaning to maintain or add content to a blog.</font></h3></td></table></center>
+<br/><br/>
+<h3><%= link_to 'click here to see new Posts' ,:controller=>'blogs',:action=>'index'%>&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to 'click here to sign_in' ,:controller=>'users',:action=>'sign_in'%>&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to 'click here to sign_up' ,:controller=>'users',:action=>'sign_up'%>
+<br/><br/><br/><br/><br/><br/>
